@@ -1,0 +1,258 @@
+import React from "react";
+import { createRoot } from "react-dom/client";
+import {
+  ArrowRight,
+  BriefcaseBusiness,
+  Download,
+  HeartHandshake,
+  Mail,
+  MapPin,
+  ShieldCheck,
+  Star,
+  Users,
+} from "lucide-react";
+import "./style.css";
+
+const roverStats = [
+  { icon: Star, label: "Rover Rating", value: "4.9 / 5" },
+  { icon: Users, label: "Rover Reviews", value: "96" },
+  { icon: ShieldCheck, label: "Repeat Pet Parents", value: "35" },
+  { icon: HeartHandshake, label: "Response Rate", value: "100%" },
+];
+
+const highlights = [
+  "Customer success and service delivery experience in data center and technology environments",
+  "Telecommunications and account management background through Comcast and AT&T",
+  "Recognized contributor to strong customer satisfaction and NPS performance",
+  "Completed Foundations of Project Management through Google/Coursera",
+  "Small business owner of BigPetLittlePet",
+  "Volunteer with Jewish Family Service and local community cleanup efforts",
+];
+
+const roverThemes = [
+  { quote: "Very communicative throughout the stay.", label: "Communication" },
+  { quote: "Incredible experience.", label: "Client experience" },
+  { quote: "Helpful, flexible, and communicative.", label: "Flexibility" },
+  { quote: "Sent photos every day.", label: "Trust-building updates" },
+];
+
+function ButtonLink({ href, children, variant = "primary" }) {
+  return (
+    <a className={`button ${variant}`} href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noreferrer" : undefined}>
+      {children}
+    </a>
+  );
+}
+
+function StatCard({ icon: Icon, label, value }) {
+  return (
+    <div className="card stat-card">
+      <Icon className="icon" />
+      <div className="stat-value">{value}</div>
+      <div className="muted small">{label}</div>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <main className="page">
+      <section className="hero">
+        <div className="glow glow-one" />
+        <div className="glow glow-two" />
+        <div className="container hero-grid">
+          <div className="hero-copy">
+            <div className="pill">Customer Success • Service Delivery • Project Coordination</div>
+            <h1>LeRoy Anderson</h1>
+            <p className="hero-text">
+              I help customers feel supported, informed, and confident through clear communication, reliable follow-through, and relationship-driven service.
+            </p>
+            <div className="button-row">
+              <ButtonLink href="/LeRoy_Anderson_Resume_Updated.pdf">
+                <Download size={20} /> Download Resume
+              </ButtonLink>
+              <ButtonLink href="mailto:lerroy.anderson@gmail.com" variant="secondary">
+                <Mail size={20} /> Contact Me
+              </ButtonLink>
+            </div>
+            <div className="contact-line">
+              <span><MapPin size={16} /> Carrollton, TX</span>
+              <span><Mail size={16} /> lerroy.anderson@gmail.com</span>
+            </div>
+          </div>
+          <div className="portrait-card">
+            <img src="/assets/headshot.webp" alt="LeRoy Anderson professional portrait" />
+          </div>
+        </div>
+      </section>
+
+      <section className="section container">
+        <div className="stats-grid">
+          {roverStats.map((item) => <StatCard key={item.label} {...item} />)}
+        </div>
+      </section>
+
+      <section className="section container two-col about-section">
+        <div>
+          <h2>About LeRoy</h2>
+          <p>
+            I’m a Customer Success and Service Delivery professional with experience across data centers, telecommunications, consumer technology, account management, and small business ownership. My background has been built around helping customers navigate service needs, solving problems, coordinating across teams, and building trust through consistent follow-through.
+          </p>
+          <p>
+            Outside of my professional roles, I’m also a business owner, pet care provider, volunteer, and relationship-builder. I believe strong service comes from being reliable, transparent, and genuinely invested in people.
+          </p>
+        </div>
+        <div className="highlight-grid">
+          {highlights.map((text) => (
+            <div className="card highlight" key={text}>
+              <span className="dot" />
+              <p>{text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="section container">
+        <div className="section-heading">
+          <div className="pill blue">Customer feedback across platforms</div>
+          <h2>Consistent service, proven by real customer feedback</h2>
+          <p>
+            Across service-based work, customer feedback reflects the same themes: communication, care, friendliness, efficiency, and dependability.
+          </p>
+        </div>
+        <div className="proof-grid two-proof">
+          <div className="card image-proof">
+            <div className="image-shell white"><img src="/assets/uber-rating.webp" alt="Uber 4.96 star rating" /></div>
+            <div className="proof-copy"><h3>Uber Star Rating</h3><p>4.96 rating based on recent rider feedback.</p></div>
+          </div>
+          <div className="card image-proof">
+            <div className="image-shell white"><img src="/assets/uber-badges.webp" alt="Uber service badges" /></div>
+            <div className="proof-copy"><h3>Service Badges</h3><p>100 five-star trips and six years with Uber.</p></div>
+          </div>
+        </div>
+        <div className="card compliment-card">
+          <h3>Customer Compliments</h3>
+          <p>Recognized for friendly service, care, great communication, and quick, efficient support.</p>
+        </div>
+      </section>
+
+      <section className="section container">
+        <div className="section-heading">
+          <div className="pill">Featured Rover feedback</div>
+          <h2>What clients consistently mention</h2>
+          <p>
+            Public Rover feedback points to the same service pattern: clear communication, flexibility, thoughtful updates, and care that helps clients feel comfortable. Full public reviews can be viewed directly on Rover.
+          </p>
+          <ButtonLink href="https://www.rover.com/members/leroy-a-bigpetlittlepet/" variant="secondary">
+            Read Full Reviews on Rover <ArrowRight size={20} />
+          </ButtonLink>
+        </div>
+        <div className="card rover-review">
+          <div className="review-top">
+            <div>
+              <h3>Verified Rover Review</h3>
+              <p className="muted">Client name and profile image removed for privacy.</p>
+            </div>
+            <span className="pill">Verified stay</span>
+          </div>
+          <div className="review-box">
+            <img src="/assets/rover-review.webp" alt="Anonymized Rover review screenshot" />
+          </div>
+        </div>
+        <div className="review-card-grid">
+          {roverThemes.map((review) => (
+            <div className="card review-card" key={review.quote}>
+              <div className="stars">★★★★★</div>
+              <p>“{review.quote}”</p>
+              <span>{review.label}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="section band">
+        <div className="container two-col">
+          <div>
+            <div className="pill">Verified learning</div>
+            <h2>Project Management Foundations</h2>
+            <p>
+              I completed Google’s Foundations of Project Management course through Coursera, building formal exposure to project management roles, responsibilities, life cycles, organizational structure, Agile concepts, Waterfall methodology, change management, and project planning.
+            </p>
+            <ButtonLink href="https://coursera.org/share/c8c5bb6377bd0b7c377c020dabaec0fa" variant="secondary">
+              View Verified Certificate <ArrowRight size={20} />
+            </ButtonLink>
+          </div>
+          <div className="card cert-card">
+            <p className="eyebrow">Coursera Certificate</p>
+            <h3>Foundations of Project Management</h3>
+            <p className="muted">Completed by LeRoy Anderson • May 8, 2026 • Authorized by Google</p>
+            <div className="skill-grid">
+              {["Project Management", "Project Planning", "Agile Methodology", "Waterfall Methodology", "Change Management", "Strategic Thinking"].map((skill) => (
+                <span key={skill}>{skill}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section band darker">
+        <div className="container two-col">
+          <div>
+            <div className="pill">Proof of trust</div>
+            <h2>BigPetLittlePet</h2>
+            <p>
+              BigPetLittlePet represents my entrepreneurial side and my commitment to trust-based service. Through pet care, dog walking, boarding support, and personalized client relationships, I’ve built repeat business by being dependable, communicative, and consistent.
+            </p>
+            <p>
+              My Rover profile reflects that same approach: strong reviews, repeat clients, fast response times, photo updates, and client feedback centered on communication, flexibility, and care.
+            </p>
+            <div className="button-row wrap">
+              <ButtonLink href="https://www.rover.com/members/leroy-a-bigpetlittlepet/" variant="secondary">
+                View Rover Profile <ArrowRight size={20} />
+              </ButtonLink>
+              <ButtonLink href="https://www.instagram.com/bigpet.littlepet/" variant="secondary">
+                View BigPetLittlePet
+              </ButtonLink>
+            </div>
+          </div>
+          <div className="trust-list">
+            {["4.9 out of 5 stars across 96 Rover reviews", "35 repeat pet parents and a 100% response rate", "100% of bookings include photo updates", "Experience caring for senior dogs, special-needs dogs, and pets requiring medication"].map((text) => (
+              <div className="card trust-item" key={text}><Star size={20} /><p>{text}</p></div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section container community-section">
+        <div className="section-heading">
+          <div className="pill blue">Community involvement</div>
+          <h2>Showing up beyond the workplace</h2>
+          <p>
+            Service has always been part of how I show up — professionally and personally. I volunteer with Jewish Family Service and community cleanup efforts because I believe in being connected to the people and neighborhoods around me. That same mindset carries into my work: be reliable, communicate clearly, follow through, and leave things better than you found them.
+          </p>
+        </div>
+        <div className="community-grid">
+          <div className="photo-card"><img src="/assets/jfs-volunteer.webp" alt="LeRoy volunteering with Jewish Family Service" /></div>
+          <div className="photo-card"><img src="/assets/huni-cleanup.webp" alt="HUNI community cleanup volunteer event" /></div>
+        </div>
+      </section>
+
+      <section className="section final-cta">
+        <div className="container cta-grid">
+          <div>
+            <h2>Open to the right opportunity</h2>
+            <p>
+              I’m focused on opportunities in Customer Success, Account Management, Service Delivery, Project Coordination, and technology-focused client support roles.
+            </p>
+          </div>
+          <div className="button-row cta-buttons">
+            <ButtonLink href="/LeRoy_Anderson_Resume_Updated.pdf"><Download size={20} /> Resume</ButtonLink>
+            <ButtonLink href="mailto:lerroy.anderson@gmail.com" variant="secondary"><BriefcaseBusiness size={20} /> Connect</ButtonLink>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+createRoot(document.getElementById("root")).render(<App />);
