@@ -92,9 +92,19 @@ p { color: #d4d4d8; line-height: 1.75; font-size: 18px; }
 .cta-grid { display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center; }
 .cta-grid p { max-width: 800px; margin-bottom: 0; }
 .cta-buttons { justify-content: flex-end; margin-top: 0; }
+
+.recognition-section { padding-top: 30px; }
+.recognition-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.recognition-card { padding: 26px; background: linear-gradient(135deg, rgba(249,115,22,.10), rgba(24,24,27,1)); }
+.apple-card { background: linear-gradient(135deg, rgba(59,130,246,.12), rgba(24,24,27,1)); }
+.recognition-icon { display: inline-flex; align-items: center; justify-content: center; min-width: 42px; height: 42px; padding: 0 10px; border-radius: 14px; background: var(--orange-soft); color: #fdba74; font-weight: 900; margin-bottom: 18px; }
+.recognition-card p { font-size: 16px; margin-bottom: 0; color: #d4d4d8; }
+.recognition-quote { margin-top: 18px; padding: 26px; border-color: rgba(249,115,22,.35); background: rgba(249,115,22,.08); }
+.recognition-quote p { margin: 0; font-size: 20px; color: #f4f4f5; }
+
 @media (max-width: 920px) {
   .hero-grid, .two-col, .cta-grid { grid-template-columns: 1fr; }
-  .stats-grid, .review-card-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats-grid, .review-card-grid, .recognition-grid { grid-template-columns: repeat(2, 1fr); }
   .two-proof, .community-grid { grid-template-columns: 1fr; }
   .cta-buttons { justify-content: flex-start; }
 }
@@ -103,7 +113,7 @@ p { color: #d4d4d8; line-height: 1.75; font-size: 18px; }
   .hero-grid { padding: 48px 0; }
   .button-row { align-items: stretch; flex-direction: column; }
   .button { width: 100%; }
-  .stats-grid, .highlight-grid, .review-card-grid, .skill-grid { grid-template-columns: 1fr; }
+  .stats-grid, .highlight-grid, .review-card-grid, .skill-grid, .recognition-grid { grid-template-columns: 1fr; }
   .image-shell { height: 250px; }
   .review-top { align-items: flex-start; flex-direction: column; }
   .photo-card img { height: 280px; }

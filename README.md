@@ -1,3 +1,1 @@
-# LeRoy Anderson Portfolio
-
-Professional resume landing page for LeRoy Anderson.
+Professional resume landing page for LeRoy Anderson with recognition and honors section.
