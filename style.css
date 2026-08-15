@@ -280,6 +280,7 @@ p { color: var(--muted); line-height: 1.75; font-size: 18px; }
 
 .recognition-section { padding-top: 30px; }
 .recognition-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.cert-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .recognition-card { padding: 30px; background: linear-gradient(135deg, #fff3e8, #ffffff); }
 .apple-card { background: linear-gradient(135deg, #eaf3ff, #e9fbf6, #ffffff); }
 .recognition-icon { display: inline-flex; align-items: center; justify-content: center; min-width: 42px; height: 42px; padding: 0 10px; border-radius: 14px; background: var(--orange-soft); color: #fdba74; font-weight: 900; margin-bottom: 18px; }
